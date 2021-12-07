@@ -1,0 +1,5 @@
+-pouzivat const
+-pri array funkciach pouzivat acumulator a current
+-vacsie funkcie napr pri reduce vytiahnut von
+
+-pridavat checky pri praci s poliami napr const [firstLastName = '', firstName= '' ]  = first_person_splitted;
