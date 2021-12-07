@@ -1,3 +1,3 @@
 function grow(x){
-  return x.reduce((acumulator, current) => prev * curr)
+  return x.reduce((acumulator, current) => acumulator * current)
 }
