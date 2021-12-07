@@ -1,8 +1,8 @@
 var humanYearsCatYearsDogYears = function(humanYears) {
   
-  var residualYears = humanYears - 1;
-  var catYears = 15;
-  var dogYears = 15;
+  let residualYears = humanYears - 1;
+  let catYears = 15;
+  let dogYears = 15;
   
   if(humanYears >= 2){
       catYears = 24;
