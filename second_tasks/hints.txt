@@ -1,5 +1,12 @@
 -pouzivat const
+nepouzivat foreach
+- NEWLINE PRED RETURNOM
 -pri array funkciach pouzivat acumulator a current
 -vacsie funkcie napr pri reduce vytiahnut von
 
--pridavat checky pri praci s poliami napr const [firstLastName = '', firstName= '' ]  = first_person_splitted;
+-pridavat checky pri praci s poliami napr const [firstLastName = '', firstName= '' ]  = first_person_splitted !!! || []  !!!;
+alebo mozem pouzit [firstLastName = '', firstName= '' ]  = [...first_person_splitted]
+
+Stringy vypisovat`${premenna || ""}.&{premenna2}`; alebo pouzit join
+-funkcie pisat primarne ako arrow function
+

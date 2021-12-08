@@ -40,14 +40,14 @@
     const filtered_inventors = inventors.filter(inventor => {
         return inventor.year < 1600 && inventor.year >= 1500;
     });
-    console.log(filtered_inventors);
+    console.table(filtered_inventors);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
-    mapped_inventors = inventors.map(inventor => {
+    const mapped_inventors = inventors.map(inventor => {
         return {first: inventor.first, last: inventor.last};
     });
-    console.log(mapped_inventors)
+    console.table(mapped_inventors)
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
     inventors.sort((first_inventor, second_inventor) =>
@@ -57,7 +57,7 @@
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
-    years_sum = inventors.reduce((sum, inventor) =>{
+    const years_sum = inventors.reduce((sum, inventor) =>{
         return sum + (inventor.passed - inventor.year);
     }, 0);
     console.log(years_sum);
@@ -66,15 +66,16 @@
     inventors.sort((first_inventor, second_inventor) => {
         return first_inventor.year - second_inventor.year;
     });
-    console.log(inventors);
+    console.table(inventors);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
     // const data = document.querySelector('.mw-category')
     // const names = [...data.querySelectorAll('a')]
     // const names_with_de = names.map(name => name.outerText).filter(text => text.includes('de')) 
+    
+    
     //reduce
-
     // name_with_de = names.reduce((acumulator, current) => {
     //     if(current.outerText.includes('de')){
     //         acumulator.push(current.outerText);
@@ -98,7 +99,7 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
     function reducer(acumulator, current){
-        if(!acumulator[current]){
+        if(current in acumulator){
             acumulator[current] = 1;
         }
         else{
