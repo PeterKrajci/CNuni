@@ -30,6 +30,7 @@
     console.log(
         people.some(person =>{
             const currentYear = new Date().getFullYear();
+          
             return currentYear - person.year >= 19
         })
     );
@@ -38,6 +39,7 @@
     console.log(
         people.every(person => {
             const currentYear = new Date().getFullYear();
+          
             return currentYear - person.year >= 19
         })
     );
@@ -47,6 +49,7 @@
     // find the comment with the ID of 823423
 
     const findedComm  = comments.find(comment => {
+      
         return comment.id == 823423; // je to === ok?
     });
 
@@ -59,7 +62,7 @@
     });
     console.log(index);
 
-    deletedComment = comments.splice(index, 1);
+    const deletedComment = comments.splice(index, 1);
 
     console.table(comments)
   </script>
