@@ -7,3 +7,15 @@ function wordsToMarks(str){
     }
   return sum;
 }
+
+function wordsToMarks(str){
+  const arr = [...str];
+  console.log(arr);
+  
+  const sum = arr.reduce((acc, curr) => {
+    return acc + curr.charCodeAt() - 96;
+    
+    }, 0)
+  
+  return sum;
+}
