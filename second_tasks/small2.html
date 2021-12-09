@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul id="suggestions" class="suggestions">
+    </ul>
+  </form>
+<script>
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+const cities = [];
+fetch(endpoint)
+    .then(response => response.json())
+    .then(data => cities.push(...data))
+    
+    .catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});
+
+const find = (word, cities) => {
+    return cities.filter(city => {
+        const cityName = city.city.toLowerCase();
+        const stateName = city.state.toLowerCase();
+        word = word.toLowerCase();
+
+        return cityName.includes(word) || stateName.includes(word);
+    })
+}
+
+const displayOptions = () => {
+    console.log(this.value);
+    const matches = find(this.value, cities);
+    const html = matches.map(match => {
+        
+        return `
+            <li>
+                <span class="name"> City: ${match.city}, State: ${match.state} </span>
+                <span class="population"> Population: ${match.population}</span>
+            </li>
+        `;
+    }).join('');
+    //console.log(html);
+    suggestions.innerHTML=html;
+
+}
+const input = document.querySelector('.search');
+const suggestions = document.querySelector('.suggestions');
+
+input.addEventListener('change', displayOptions );
+input.addEventListener('keyup', displayOptions );
+
+var ul = document.getElementById('suggestions');
+ul.onclick = function(e) {
+    var target = e.target.innerHTML;
+    input.value=target;
+};
+
+</script>
+</body>
+</html>
