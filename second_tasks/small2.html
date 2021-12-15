@@ -25,7 +25,7 @@ fetch(endpoint)
 	console.warn('Something went wrong.', err);
 });
 
-const find = (word, cities) => {
+const findMatchingCitites = (word) => {
     return cities.filter(city => {
         const cityName = city.city.toLowerCase();
         const stateName = city.state.toLowerCase();
@@ -35,9 +35,9 @@ const find = (word, cities) => {
     })
 }
 
-const displayOptions = () => {
+function displayOptions(){
     console.log(this.value);
-    const matches = find(this.value, cities);
+    const matches = findMatchingCitites(this.value);
     const html = matches.map(match => {
         
         return `
@@ -57,9 +57,9 @@ const suggestions = document.querySelector('.suggestions');
 input.addEventListener('change', displayOptions );
 input.addEventListener('keyup', displayOptions );
 
-var ul = document.getElementById('suggestions');
+const ul = document.getElementById('suggestions');
 ul.onclick = function(e) {
-    var target = e.target.innerHTML;
+    const target = e.target.innerHTML;
     input.value=target;
 };
 
